@@ -119,9 +119,9 @@ def main():
     
     # create_sheet()
     try:
-        for i in range(1,5000):
-            #save_sheet(i+1,data_result)
-            db_result(i,data_result)
+        for i in range(1,total):
+            #save_sheet(i+1,data_result)          #写入EXCEL打开此注释
+            db_result(i,data_result)              #写入mysql打开此注释
             print("已写入第%d行数据"%i)
         # for j in range (0,20):
         #     print(data_result['data']['diff'][j]['f12'],
@@ -143,7 +143,7 @@ def main():
     except Exception as ex:
         print (ex)
         
-    df = pd2.read_sql_query('''select * from result''',engine)
+    df = pd2.read_sql_query('''select * from result''',engine)       #输出写入mysql的结果，如使用EXCEL的请关闭
     print(df)
 
 if __name__ == '__main__':
